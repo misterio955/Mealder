@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Mealder</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="meal_browser">Meal browser</string>
+</resources>
