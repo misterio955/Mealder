@@ -28,6 +28,13 @@ public class SignInActivity extends AppCompatActivity {
         signIn = findViewById(R.id.signIn);
         registerNow = findViewById(R.id.registerNow);
         setClicks();
+        setLoginAndPass();
+    }
+
+    //To help
+    private void setLoginAndPass(){
+        login.setText("login");
+        password.setText("password");
     }
 
     private void setClicks() {

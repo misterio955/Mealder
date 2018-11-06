@@ -13,7 +13,7 @@ import com.example.ideo.mealder.models.MealRecipe;
 
 import java.util.List;
 
-public class MealBrowser extends AppCompatActivity {
+public class MealViewPagerActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private List<MealRecipe> mealRecipes;
@@ -22,7 +22,7 @@ public class MealBrowser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meal_browser);
+        setContentView(R.layout.activity_meal_view_pager);
         viewPager = findViewById(R.id.viewPager);
         homeButton = findViewById(R.id.homeButton);
         mealRecipes = HomeScreenActivity.getMealRecipes();

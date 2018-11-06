@@ -17,11 +17,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MealBrowser" />
+        <activity android:name=".activities.MealViewPagerActivity" />
         <activity android:name=".activities.HomeScreenActivity" />
         <activity
             android:name=".activities.SignUpActivity"
-            android:label="@string/title_activity_sign_up"></activity>
+            android:label="@string/title_activity_sign_up" />
+        <activity
+            android:name=".activities.MealRecyclerActivity"
+            android:label="@string/title_activity_meal_recycler" />
+        <activity
+            android:name=".Utils.RecyclerListAdapter"
+            android:label="@string/title_activity_recycler_list_adapter"></activity>
     </application>
 
 </manifest>

@@ -14,4 +14,7 @@
     <string name="log_out">Logout</string>
     <string name="new_account">You dont have an account yet?</string>
     <string name="register_now">Register now!</string>
+    <string name="title_activity_meal_recycler">MealRecyclerActivity</string>
+    <string name="title_activity_recycler_list_adapter">RecyclerListAdapter</string>
+    <string name="meal_recycler">Meal recycler</string>
 </resources>
