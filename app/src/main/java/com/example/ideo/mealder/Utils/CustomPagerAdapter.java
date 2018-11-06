@@ -6,6 +6,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ideo.mealder.R;
@@ -19,6 +20,7 @@ public class CustomPagerAdapter extends PagerAdapter {
     private TextView mealName;
     private TextView mealIngredients;
     private TextView mealSteps;
+    private ImageView mealPhoto;
 
     public CustomPagerAdapter(Context context, List<MealRecipe> recipes) {
         mContext = context;
@@ -34,6 +36,7 @@ public class CustomPagerAdapter extends PagerAdapter {
         mealName = layout.findViewById(R.id.mealName);
         mealIngredients = layout.findViewById(R.id.mealIngredients);
         mealSteps = layout.findViewById(R.id.mealSteps);
+        mealPhoto = layout.findViewById(R.id.mealPhoto);
         setTextValues(position);
         return layout;
     }
@@ -44,6 +47,7 @@ public class CustomPagerAdapter extends PagerAdapter {
         mealName.setText(recipe.getMealName());
         mealIngredients.setText(recipe.getMealIngredients().toString());
         mealSteps.setText(recipe.getRecipeSteps().toString());
+        mealPhoto.setBackgroundResource(R.mipmap.ic_launcher);
     }
 
     @Override

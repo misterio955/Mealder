@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,12 +7,46 @@
 
     <Button
         android:id="@+id/browserButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:padding="5dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/meal_browser" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:layout_below="@+id/browserButton"
+        android:id="@+id/favouritiesButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/favourities" />
+
+    <Button
+        android:layout_below="@id/favouritiesButton"
+        android:id="@+id/settingsButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/settings" />
+
+    <Button
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/logoutButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/log_out" />
+
+</RelativeLayout>

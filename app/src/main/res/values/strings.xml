@@ -2,4 +2,16 @@
     <string name="app_name">Mealder</string>
     <string name="back_to_home">Back to Home</string>
     <string name="meal_browser">Meal browser</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="invalid_password">Invalid password</string>
+    <string name="favourities">Favourities</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Logout</string>
+    <string name="new_account">You dont have an account yet?</string>
+    <string name="register_now">Register now!</string>
 </resources>

@@ -3,18 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/mealPhoto"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/mealName"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_below="@+id/mealPhoto"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/mealIngredients"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_below="@+id/mealName"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:textSize="20sp" />
@@ -22,7 +30,8 @@
     <TextView
         android:id="@+id/mealSteps"
         android:layout_width="300dp"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/mealIngredients"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:textSize="20sp" />

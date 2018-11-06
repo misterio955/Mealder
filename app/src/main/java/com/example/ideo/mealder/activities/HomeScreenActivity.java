@@ -27,12 +27,15 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     private void setExamples(){
-        List<String> strings = new ArrayList<>();
-        strings.add("aa");
-        strings.add("bb");
-        mealRecipes.add(new MealRecipe(0,"meal1", strings,strings,"path1"));
-        mealRecipes.add(new MealRecipe(1,"meal2", strings,strings,"path2"));
-        mealRecipes.add(new MealRecipe(2,"meal3", strings,strings,"path3"));
+        List<String> ingrets = new ArrayList<>();
+        List<String> steps = new ArrayList<>();
+        ingrets.add("skladnik1");
+        ingrets.add("skladnik2");
+        steps.add("krok1");
+        steps.add("krok2");
+        mealRecipes.add(new MealRecipe(0,"meal1", steps,ingrets,"path1"));
+        mealRecipes.add(new MealRecipe(1,"meal2", steps,ingrets,"path2"));
+        mealRecipes.add(new MealRecipe(2,"meal3", steps,ingrets,"path3"));
     }
 
     public static List<MealRecipe> getMealRecipes() {
