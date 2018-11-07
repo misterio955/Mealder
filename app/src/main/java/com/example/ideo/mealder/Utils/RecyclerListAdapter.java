@@ -71,5 +71,4 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
     public void setOnItemClickListener(MyClickListener myClickListener) {
         this.myClickListener = myClickListener;
     }
-
 }

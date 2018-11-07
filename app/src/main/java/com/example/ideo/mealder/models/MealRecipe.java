@@ -1,8 +1,9 @@
 package com.example.ideo.mealder.models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class MealRecipe {
+public class MealRecipe implements Serializable {
 
     private int mealId;
     private String mealName;
@@ -10,14 +11,16 @@ public class MealRecipe {
     private List<String> recipeSteps;
     private String photoPath;
     private String mealDescription;
+    private double totalPrice;
 
-    public MealRecipe(int mealId, String mealName, List<String> recipeSteps, List<String> mealIngredients, String photoPath, String mealDescription) {
+    public MealRecipe(int mealId, String mealName, List<String> recipeSteps, List<String> mealIngredients, String photoPath, String mealDescription, double totalPrice) {
         this.mealId = mealId;
         this.mealName = mealName;
         this.recipeSteps = recipeSteps;
         this.mealIngredients = mealIngredients;
         this.photoPath = photoPath;
         this.mealDescription = mealDescription;
+        this.totalPrice = totalPrice;
     }
 
     public int getMealId() {
@@ -42,5 +45,9 @@ public class MealRecipe {
 
     public String getMealDescription() {
         return mealDescription;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
     }
 }

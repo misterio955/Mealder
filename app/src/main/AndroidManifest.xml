@@ -27,7 +27,10 @@
             android:label="@string/title_activity_meal_recycler" />
         <activity
             android:name=".Utils.RecyclerListAdapter"
-            android:label="@string/title_activity_recycler_list_adapter"></activity>
+            android:label="@string/title_activity_recycler_list_adapter" />
+        <activity
+            android:name=".activities.MealDetailsActivity"
+            android:label="@string/title_activity_meal_details"></activity>
     </application>
 
 </manifest>

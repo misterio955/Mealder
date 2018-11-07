@@ -17,4 +17,5 @@
     <string name="title_activity_meal_recycler">MealRecyclerActivity</string>
     <string name="title_activity_recycler_list_adapter">RecyclerListAdapter</string>
     <string name="meal_recycler">Meal recycler</string>
+    <string name="title_activity_meal_details">MealDetailsActivity</string>
 </resources>

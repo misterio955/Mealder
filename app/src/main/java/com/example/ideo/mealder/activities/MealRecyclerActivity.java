@@ -1,7 +1,9 @@
 package com.example.ideo.mealder.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -18,6 +20,7 @@ public class MealRecyclerActivity extends Activity {
 
     private List<MealRecipe> recipes = new ArrayList<>();
     private RecyclerListAdapter mealListAdapter = null;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,9 @@ public class MealRecyclerActivity extends Activity {
         mealListAdapter.setOnItemClickListener(new RecyclerListAdapter.MyClickListener() {
             @Override
             public void onEventClick(int position) {
+                intent = new Intent(getBaseContext(), MealDetailsActivity.class);
+                intent.putExtra("recipe", recipes.get(position));
+                startActivity(intent);
             }
         });
     }
