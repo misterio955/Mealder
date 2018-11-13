@@ -47,6 +47,6 @@ public class MealRecyclerActivity extends Activity {
                 intent.putExtra("recipe", recipes.get(position));
                 startActivity(intent);
             }
-        });
+        }, getBaseContext());
     }
 }

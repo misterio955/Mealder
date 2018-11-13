@@ -1,15 +1,16 @@
 package com.example.ideo.mealder.Utils;
 
+import android.content.Context;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ideo.mealder.R;
 import com.example.ideo.mealder.models.MealRecipe;
@@ -20,6 +21,7 @@ import java.util.List;
 public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapter.DataObjectHolder> {
 
     private MyClickListener myClickListener;
+    private Context context;
     private List<MealRecipe> recipes;
     private List<User> users;
     private int doubleTapPosition;
@@ -54,8 +56,9 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
             @Override
             public void onClick(View v) {
                 if (doubleTap & doubleTapPosition == holder.getAdapterPosition())
-                    addToFavourities(holder.getAdapterPosition(), users.get(1));
+                    addToFavourities(holder.getAdapterPosition(), users.get(0));
                 else {
+
                     doubleTapPosition = holder.getAdapterPosition();
                     doubleTap = true;
                     Handler handler = new Handler();
@@ -93,13 +96,13 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
         void onEventClick(int position);
     }
 
-    public void setOnItemClickListener(MyClickListener myClickListener) {
+    public void setOnItemClickListener(MyClickListener myClickListener, Context context) {
         this.myClickListener = myClickListener;
+        this.context = context;
     }
 
     private void addToFavourities(int mealId, User user) {
         user.getFavouriteMeals().add(recipes.get(mealId));
-        Log.e("aaaa", "mealID: " + mealId + "; userID: " + user.getUserId());
-        Log.e("aaaa", "user's meals: " + user.getFavouriteMeals().toString());
+        Toast.makeText(context, "Added recipe to favourities.", Toast.LENGTH_SHORT).show();
     }
 }

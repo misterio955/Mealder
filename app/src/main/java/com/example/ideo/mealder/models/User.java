@@ -10,7 +10,6 @@ public class User {
     private List<MealRecipe> favouriteMeals;
     private List<MealRecipe> ownMeals;
 
-
     public User(int userId, String userName, String password, String email, List<MealRecipe> favouriteMeals, List<MealRecipe> ownMeals) {
         this.userId = userId;
         this.userName = userName;
@@ -38,5 +37,9 @@ public class User {
 
     public List<MealRecipe> getFavouriteMeals() {
         return favouriteMeals;
+    }
+
+    public List<MealRecipe> getOwnMeals() {
+        return ownMeals;
     }
 }

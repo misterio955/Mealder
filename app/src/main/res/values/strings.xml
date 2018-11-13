@@ -20,6 +20,8 @@
     <string name="title_activity_meal_details">MealDetailsActivity</string>
     <string name="title_activity_favourities">FavouritiesActivity</string>
     <string name="any_favourities">You have not any favourities meals.</string>
+    <string name="any_own_recipes">You have not added any recipes yet.</string>
     <string name="my_recipes">My recipes</string>
     <string name="title_activity_my_recipes">MyRecipesActivity</string>
+    <string name="title_activity_own">OwnActivity</string>
 </resources>

@@ -36,7 +36,10 @@
             android:label="@string/title_activity_favourities" />
         <activity
             android:name=".activities.MyRecipesActivity"
-            android:label="@string/title_activity_my_recipes"></activity>
+            android:label="@string/title_activity_my_recipes" />
+        <activity
+            android:name=".activities.OwnActivity"
+            android:label="@string/title_activity_own"></activity>
     </application>
 
 </manifest>
