@@ -1,8 +1,10 @@
 package com.example.ideo.mealder.Utils;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,17 +13,21 @@ import android.widget.TextView;
 
 import com.example.ideo.mealder.R;
 import com.example.ideo.mealder.models.MealRecipe;
+import com.example.ideo.mealder.models.User;
 
 import java.util.List;
-
 
 public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapter.DataObjectHolder> {
 
     private MyClickListener myClickListener;
     private List<MealRecipe> recipes;
+    private List<User> users;
+    private int doubleTapPosition;
+    private boolean doubleTap = false;
 
-    public RecyclerListAdapter(List<MealRecipe> recipes) {
+    public RecyclerListAdapter(List<MealRecipe> recipes, List<User> users) {
         this.recipes = recipes;
+        this.users = users;
     }
 
     @NonNull
@@ -33,7 +39,7 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final DataObjectHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final DataObjectHolder holder, final int position) {
         holder.mealName.setText(recipes.get(position).getMealName());
         holder.mealDescription.setText(recipes.get(position).getMealDescription());
         holder.mealImage.setImageResource(R.mipmap.ic_launcher);
@@ -41,6 +47,25 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
             @Override
             public void onClick(View v) {
                 myClickListener.onEventClick(holder.getAdapterPosition());
+            }
+        });
+
+        holder.mealImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (doubleTap & doubleTapPosition == holder.getAdapterPosition())
+                    addToFavourities(holder.getAdapterPosition(), users.get(1));
+                else {
+                    doubleTapPosition = holder.getAdapterPosition();
+                    doubleTap = true;
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            doubleTap = false;
+                        }
+                    }, 450);
+                }
             }
         });
     }
@@ -70,5 +95,11 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
 
     public void setOnItemClickListener(MyClickListener myClickListener) {
         this.myClickListener = myClickListener;
+    }
+
+    private void addToFavourities(int mealId, User user) {
+        user.getFavouriteMeals().add(recipes.get(mealId));
+        Log.e("aaaa", "mealID: " + mealId + "; userID: " + user.getUserId());
+        Log.e("aaaa", "user's meals: " + user.getFavouriteMeals().toString());
     }
 }

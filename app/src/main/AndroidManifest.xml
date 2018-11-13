@@ -30,7 +30,13 @@
             android:label="@string/title_activity_recycler_list_adapter" />
         <activity
             android:name=".activities.MealDetailsActivity"
-            android:label="@string/title_activity_meal_details"></activity>
+            android:label="@string/title_activity_meal_details" />
+        <activity
+            android:name=".activities.FavouritiesActivity"
+            android:label="@string/title_activity_favourities" />
+        <activity
+            android:name=".activities.MyRecipesActivity"
+            android:label="@string/title_activity_my_recipes"></activity>
     </application>
 
 </manifest>
