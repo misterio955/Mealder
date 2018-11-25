@@ -38,7 +38,7 @@ public class MealRecyclerActivity extends Activity {
     private void setMealRecipeList() {
         RecyclerView mealRecipesList = findViewById(R.id.mealRecyclerList);
         mealRecipesList.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        mealRecipesList.setAdapter(mealListAdapter = new RecyclerListAdapter(recipes, users));
+        mealRecipesList.setAdapter(mealListAdapter = new RecyclerListAdapter(recipes));
         mealRecipesList.addItemDecoration(new PaddingDecoration(Methods.dpToPx(getApplicationContext(), 20), PaddingDecoration.Type.Top, PaddingDecoration.Type.Bottom));
         mealListAdapter.setOnItemClickListener(new RecyclerListAdapter.MyClickListener() {
             @Override

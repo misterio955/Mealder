@@ -6,6 +6,7 @@ import java.util.List;
 public class MealRecipe implements Serializable {
 
     private int mealId;
+    private User userId;
     private String mealName;
     private List<String> mealIngredients;
     private List<String> recipeSteps;
@@ -13,8 +14,9 @@ public class MealRecipe implements Serializable {
     private String mealDescription;
     private double totalPrice;
 
-    public MealRecipe(int mealId, String mealName, List<String> recipeSteps, List<String> mealIngredients, String photoPath, String mealDescription, double totalPrice) {
+    public MealRecipe(int mealId, User userId, String mealName, List<String> recipeSteps, List<String> mealIngredients, String photoPath, String mealDescription, double totalPrice) {
         this.mealId = mealId;
+        this.userId =  userId;
         this.mealName = mealName;
         this.recipeSteps = recipeSteps;
         this.mealIngredients = mealIngredients;
@@ -25,6 +27,10 @@ public class MealRecipe implements Serializable {
 
     public int getMealId() {
         return mealId;
+    }
+
+    public User getUserId() {
+        return userId;
     }
 
     public String getMealName() {

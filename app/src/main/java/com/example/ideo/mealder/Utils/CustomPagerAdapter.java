@@ -21,10 +21,12 @@ public class CustomPagerAdapter extends PagerAdapter {
     private TextView mealIngredients;
     private TextView mealSteps;
     private ImageView mealPhoto;
+    private View.OnClickListener clickListener;
 
-    public CustomPagerAdapter(Context context, List<MealRecipe> recipes) {
+    public CustomPagerAdapter(Context context, List<MealRecipe> recipes, View.OnClickListener clickListener) {
         mContext = context;
         mealRecipes = recipes;
+        this.clickListener = clickListener;
     }
 
     @NonNull
@@ -37,6 +39,8 @@ public class CustomPagerAdapter extends PagerAdapter {
         mealIngredients = layout.findViewById(R.id.mealIngredients);
         mealSteps = layout.findViewById(R.id.mealSteps);
         mealPhoto = layout.findViewById(R.id.mealPhoto);
+        mealPhoto.setOnClickListener(clickListener);
+
         setTextValues(position);
         return layout;
     }

@@ -1,6 +1,8 @@
 package com.example.ideo.mealder.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.v4.view.ViewPager;
@@ -20,6 +22,8 @@ public class FavouritiesActivity extends Activity {
     private Button homeButton;
     RelativeLayout layout;
     RelativeLayout transparent;
+    Intent intent;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +33,21 @@ public class FavouritiesActivity extends Activity {
         homeButton = findViewById(R.id.homeButton);
         layout = findViewById(R.id.layout);
         transparent = findViewById(R.id.transparent);
-        user = HomeScreenActivity.getUsers().get(0);
+        sharedPreferences = getSharedPreferences("AppConfig", Context.MODE_PRIVATE);
+        user = HomeScreenActivity.getUser(sharedPreferences.getInt("userId", 0));
+        Log.e("aaa", "favourit:" + user.getUserId());
         setClicks();
         if (user.getFavouriteMeals().size() == 0) {
             layout.setVisibility(View.GONE);
             transparent.setVisibility(View.VISIBLE);
-        } else viewPager.setAdapter(new CustomPagerAdapter(this, user.getFavouriteMeals()));
+        } else
+            viewPager.setAdapter(new CustomPagerAdapter(this, user.getFavouriteMeals(), new View.OnClickListener() {
+                public void onClick(View v) {
+                    intent = new Intent(getBaseContext(), MealDetailsActivity.class);
+                    intent.putExtra("recipe", user.getFavouriteMeals().get(viewPager.getCurrentItem()));
+                    startActivity(intent);
+                }
+            }));
     }
 
     private void setClicks() {

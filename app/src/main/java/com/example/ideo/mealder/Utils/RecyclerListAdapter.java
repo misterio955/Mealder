@@ -1,6 +1,7 @@
 package com.example.ideo.mealder.Utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ideo.mealder.R;
+import com.example.ideo.mealder.activities.HomeScreenActivity;
 import com.example.ideo.mealder.models.MealRecipe;
 import com.example.ideo.mealder.models.User;
 
@@ -23,13 +25,13 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
     private MyClickListener myClickListener;
     private Context context;
     private List<MealRecipe> recipes;
-    private List<User> users;
     private int doubleTapPosition;
     private boolean doubleTap = false;
+    SharedPreferences sharedPreferences;
+    User user;
 
-    public RecyclerListAdapter(List<MealRecipe> recipes, List<User> users) {
+    public RecyclerListAdapter(List<MealRecipe> recipes) {
         this.recipes = recipes;
-        this.users = users;
     }
 
     @NonNull
@@ -37,6 +39,8 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
     public DataObjectHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         int itemView = R.layout.recycler_item;
         View staticView = LayoutInflater.from(parent.getContext()).inflate(itemView, parent, false);
+        sharedPreferences = context.getSharedPreferences("AppConfig", Context.MODE_PRIVATE);
+        user = HomeScreenActivity.getUser(sharedPreferences.getInt("userId", 0));
         return new DataObjectHolder(staticView);
     }
 
@@ -56,7 +60,8 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
             @Override
             public void onClick(View v) {
                 if (doubleTap & doubleTapPosition == holder.getAdapterPosition())
-                    addToFavourities(holder.getAdapterPosition(), users.get(0));
+
+                    addToFavourities(holder.getAdapterPosition(), user);
                 else {
 
                     doubleTapPosition = holder.getAdapterPosition();

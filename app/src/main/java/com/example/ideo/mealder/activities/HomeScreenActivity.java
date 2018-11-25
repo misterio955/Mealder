@@ -76,7 +76,11 @@ public class HomeScreenActivity extends AppCompatActivity {
         });
     }
 
-    private void setExamples() {
+    public static User getUser(int index){
+        return users.get(index);
+    }
+
+    public static void setExamples() {
         //meals
         List<String> ingrets = new ArrayList<>();
         List<String> steps = new ArrayList<>();
@@ -85,23 +89,24 @@ public class HomeScreenActivity extends AppCompatActivity {
         steps.add("krok1");
         steps.add("krok2");
         double totalPrice = 9.99;
-        MealRecipe recipe1 = new MealRecipe(0, "meal1", steps, ingrets, "path1", "blabla", totalPrice);
-        MealRecipe recipe2 = new MealRecipe(1, "meal2", steps, ingrets, "path2", "blabla", totalPrice);
-        MealRecipe recipe5 = new MealRecipe(4, "meal5", steps, ingrets, "path5", "blabla", totalPrice);
 
-        mealRecipes.add(recipe1);
+        User user1 = new User(1, "login", "password", "admin@email.com", new ArrayList<MealRecipe>(), new ArrayList<MealRecipe>());
+
+        MealRecipe recipe2 = new MealRecipe(1, null, "meal2", steps, ingrets, "path2", "blabla", totalPrice);
+        MealRecipe recipe5 = new MealRecipe(4, null, "meal5", steps, ingrets, "path5", "blabla", totalPrice);
+
         mealRecipes.add(recipe2);
-        mealRecipes.add(new MealRecipe(2, "meal3", steps, ingrets, "path3", "blabla", totalPrice));
-        mealRecipes.add(new MealRecipe(3, "meal4", steps, ingrets, "path4", "blabla", totalPrice));
+        mealRecipes.add(new MealRecipe(2, null, "meal3", steps, ingrets, "path3", "blabla", totalPrice));
+        mealRecipes.add(new MealRecipe(3, null, "meal4", steps, ingrets, "path4", "blabla", totalPrice));
         mealRecipes.add(recipe5);
-        mealRecipes.add(new MealRecipe(5, "meal6", steps, ingrets, "path6", "blabla", totalPrice));
+        mealRecipes.add(new MealRecipe(5, null, "meal6", steps, ingrets, "path6", "blabla", totalPrice));
 
         List<MealRecipe> favourites = new ArrayList<>();
-        favourites.add(recipe1);
         favourites.add(recipe2);
         favourites.add(recipe5);
 
-        users.add(new User(1, "admin", "password", "admin@email.com", new ArrayList<MealRecipe>(), new ArrayList<MealRecipe>()));
+        user1.getOwnMeals().addAll(favourites);
+        users.add(user1);
         users.add(new User(2, "user", "password", "user@email.com", favourites, new ArrayList<MealRecipe>()));
     }
 }
