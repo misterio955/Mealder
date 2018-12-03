@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddMeal">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+
+    <Button
+        android:id="@+id/AddPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="onClickedButtonGalery"
+        android:text="@string/AddPictureButton"
+        android:textAllCaps="false"
+        tools:text="Dodaj obrazek" />
+
+    <LinearLayout
+        android:id="@+id/InformationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="151dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/InformationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Informacja o posiłku"
+            android:inputType="text"
+            android:singleLine="false"
+            android:textAlignment="center"
+            tools:text="Informacja o posiłku" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/RecipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="306dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/RecipeText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            tools:text="Składnik" />
+
+        <EditText
+            android:id="@+id/QuantityText"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            tools:text="Ilość" />
+
+        <Button
+            android:id="@+id/MeasureButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button"
+            android:textAllCaps="false"
+            tools:text="Wybierz miare" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/AddRecipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/AddRecipeLayoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button"
+            tools:text="Dodaj składnik" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/HowMakeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="310dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/HowMakeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/HowMakeLayout"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Informacja o posiłku"
+            android:inputType="text"
+            android:singleLine="false"
+            android:textAlignment="center"
+            tools:text="Jak przygotowac posiłek" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/AddMeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp"
+        android:layout_weight="1"
+        android:text="Button"
+        tools:text="Dodaj posiłek" />
+</RelativeLayout>

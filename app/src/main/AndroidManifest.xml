@@ -39,7 +39,8 @@
             android:label="@string/title_activity_my_recipes" />
         <activity
             android:name=".activities.OwnActivity"
-            android:label="@string/title_activity_own"></activity>
+            android:label="@string/title_activity_own" />
+        <activity android:name=".activities.AddMeal"></activity>
     </application>
 
 </manifest>
