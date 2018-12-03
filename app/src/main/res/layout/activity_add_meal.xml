@@ -20,10 +20,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:onClick="onClickedButtonGalery"
-        android:text="@string/AddPictureButton"
-        android:textAllCaps="false"
-        tools:text="Dodaj obrazek" />
+        android:onClick="galleryButtonOnClick"
+        android:text="Dodaj obrazek"
+        android:textAllCaps="false" />
 
     <LinearLayout
         android:id="@+id/InformationLayout"
@@ -64,9 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Składnik"
             android:inputType="textPersonName"
-            android:text="Name"
-            tools:text="Składnik" />
+            android:text="Name" />
 
         <EditText
             android:id="@+id/QuantityText"
@@ -74,18 +73,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Ilość"
             android:inputType="textPersonName"
-            android:text="Name"
-            tools:text="Ilość" />
+            android:text="Name" />
 
         <Button
             android:id="@+id/MeasureButton"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button"
-            android:textAllCaps="false"
-            tools:text="Wybierz miare" />
+            android:text="Wybierz miare"
+            android:textAllCaps="false" />
     </LinearLayout>
 
     <LinearLayout
@@ -101,8 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button"
-            tools:text="Dodaj składnik" />
+            android:text="Dodaj składnik" />
     </LinearLayout>
 
     <LinearLayout
@@ -123,7 +120,7 @@
             android:layout_alignStart="@+id/HowMakeLayout"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Informacja o posiłku"
+            android:hint="Jak przygotowac posiłek"
             android:inputType="text"
             android:singleLine="false"
             android:textAlignment="center"
@@ -139,6 +136,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="27dp"
         android:layout_weight="1"
-        android:text="Button"
-        tools:text="Dodaj posiłek" />
+        android:text="Dodaj posiłek" />
 </RelativeLayout>
