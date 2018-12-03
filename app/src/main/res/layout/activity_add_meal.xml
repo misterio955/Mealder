@@ -77,13 +77,12 @@
             android:inputType="textPersonName"
             android:text="Name" />
 
-        <Button
-            android:id="@+id/MeasureButton"
+        <Spinner
+            android:id="@+id/measureSpinner"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Wybierz miare"
-            android:textAllCaps="false" />
+            android:spinnerMode="dialog" />
     </LinearLayout>
 
     <LinearLayout
