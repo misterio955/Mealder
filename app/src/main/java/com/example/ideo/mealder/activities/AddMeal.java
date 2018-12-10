@@ -14,15 +14,17 @@ import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.example.ideo.mealder.R;
+import com.example.ideo.mealder.models.MealRecipe;
 
 public class AddMeal extends AppCompatActivity {
     private static final int RESULT_LOAD_IMG = 20;
     private ImageView image_view;
-
-    private String[] measureItem = new String[]{"Szt.","ml","g"};
-
+    private Uri imageUri;
+    private List<String> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +33,16 @@ public class AddMeal extends AppCompatActivity {
 
         image_view = findViewById(R.id.imageView);
 
-        makeListMeasure();
-
     }
 
+    //Wyświetlenie galerii
     public void galleryButtonOnClick(View v) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
     }
 
-
+    //Wybranie zdjecia
     @Override
     protected void onActivityResult(int reqCode, int resultCode, Intent data) {
         super.onActivityResult(reqCode, resultCode, data);
@@ -49,7 +50,7 @@ public class AddMeal extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             try {
-                final Uri imageUri = data.getData();
+                imageUri = data.getData();
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 image_view.setImageBitmap(selectedImage);
@@ -62,12 +63,31 @@ public class AddMeal extends AppCompatActivity {
             Toast.makeText(this, "You haven't picked Image", Toast.LENGTH_LONG).show();
         }
     }
-    //Tworzenie listy rozwijanej
-    private void makeListMeasure (){
-
-        Spinner spinnerListMeasure = findViewById(R.id.measureSpinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, measureItem);
-        spinnerListMeasure.setAdapter(adapter);
+    //Tworzenie i wysyłanie posiłku do bazy
+    public void addMeal(View v) {
+        //Utworzenie posiłku
+        MealRecipe meal = new MealRecipe(
+                10,
+                null,
+                findViewById(R.id.NameMealText).toString(),
+                stringToList(findViewById(R.id.HowMakeMealText).toString()),
+                stringToList(findViewById(R.id.MealRecipeText).toString()),
+                imageUri.getPath(),
+                findViewById(R.id.MealInformationText).toString(),
+                Double.parseDouble(findViewById(R.id.MealPriceText).toString())
+        );
+        //Wysłanie posiłku do bazy
     }
+
+    //findViewById(R.id.MealRecipeText);
+    private List<String> stringToList(String text) {
+        //Zmiana string na liste
+        list.clear();
+        for (String tab : text.split("\n")) {
+            list.add(tab);
+        }
+        return list;
+    }
+
 }
 
